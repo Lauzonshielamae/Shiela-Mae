@@ -1,0 +1,87 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 shadow p-4 rounded border">
+      <h1 class="text-center mb-4">Registration Form</h1>
+      
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input 
+            id="name" 
+            type="text" 
+            class="form-control" 
+            formControlName="name" 
+            [ngClass]="{'is-invalid': registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched}">
+          <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched" class="invalid-feedback">
+            Name is required.
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input 
+            id="lastName" 
+            type="text" 
+            class="form-control" 
+            formControlName="lastName" 
+            [ngClass]="{'is-invalid': registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched}">
+          <div *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched" class="invalid-feedback">
+            Last name is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input 
+            id="email" 
+            type="email" 
+            class="form-control" 
+            formControlName="email" 
+            [ngClass]="{'is-invalid': registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched}">
+          <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="invalid-feedback">
+            Email is required.
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="mobile" class="form-label">Mobile Number</label>
+          <input 
+            id="mobile" 
+            type="text" 
+            class="form-control" 
+            formControlName="mobile" 
+            [ngClass]="{'is-invalid': registrationForm.get('mobile')?.invalid && registrationForm.get('mobile')?.touched}">
+          <div *ngIf="registrationForm.get('mobile')?.invalid && registrationForm.get('mobile')?.touched" class="invalid-feedback">
+            Mobile is required and must be numeric.
+          </div>
+        </div>
+  
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input 
+            id="username" 
+            type="text" 
+            class="form-control" 
+            formControlName="username" 
+            [ngClass]="{'is-invalid': registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched}">
+          <div *ngIf="registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched" class="invalid-feedback">
+            Username is required and must be an email.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input 
+            id="password" 
+            type="password" 
+            class="form-control" 
+            formControlName="password" 
+            [ngClass]="{'is-invalid': registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched}">
+          <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" class="invalid-feedback">
+            Password is required, must be strong, and must be more than 8 characters.
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-outline-success w-100">Submit</button>
+      </form>
+    </div>
+  </div>
